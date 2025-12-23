@@ -1,33 +1,31 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import './SongList.jsx'
+import SongList from './SongList.jsx'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const data = [
+    {title: "song 1", artist: "joe smith", album: "album 1", duration: "3:15"},
+    {title: "song 2", artist: "joe smith", album: "album 1", duration: "3:00"},
+    {title: "song 3", artist: "joe smith", album: "album 1", duration: "3:00"},
+    {title: "song 1", artist: "joe smith", album: "album 1", duration: "3:15"},
+    {title: "song 2", artist: "joe smith", album: "album 1", duration: "3:00"},
+    {title: "song 3", artist: "joe smith", album: "album 1", duration: "3:00"}
+  ]
+
+  let songSelected = false;
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1 className="title">Spotify Music Visualization</h1>
+        <input type="text" placeholder="Look for a song" className="song_name_field"/>
+        <button type="button" className="search_button">Search</button>
+        <div className="song-list-containter" style={{ display: songSelected ? "none" : "block" }}>
+          <SongList songs={data}/>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }

@@ -1,0 +1,23 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  font-size:larger;
+}
+
+td, th {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #4e4e4e;
+}
+
+table tr td {
+  transition: background-color 0.15s; /* smooth transition on hover */
+}
+
+table tr:hover td {
+    background-color:rgb(72, 120, 184);
+}
